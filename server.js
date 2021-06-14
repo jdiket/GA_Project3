@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = requre('mongoose')
+const mongoose = require('mongoose')
 
 
 // CONFIG
