@@ -1,3 +1,5 @@
 # GA_Project3
 
-Troy Bankerd
+## Group Members:
+
+Tamir Montalto
