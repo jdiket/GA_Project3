@@ -1,5 +1,6 @@
 # GA_Project3
 
-## Members
+## Group Members:
 
 Tamir Montalto
+John Diket
