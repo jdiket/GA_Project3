@@ -7,13 +7,10 @@ const taskSchema = mongoose.Schema({
     dateDue: {type: String, title: 'Date Due', required: true},
     description: {type: String, title: 'Description'}, 
     subTask: [{
-        name: {type: String, title: 'Name', required: true},
+        name: {type: String, title: 'Name'},
         description: {type: String, title: 'Description'},
         completed:{type: Boolean, title: 'Completed'}
     }]
-    
-
 })
-
 
 module.exports = mongoose.model('Task', taskSchema);
