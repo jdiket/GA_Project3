@@ -30,5 +30,18 @@ tasks.get('/', (req, res) => {
     //curl http://localhost:3003/tasks
 
   
+        //Delete Route
+    tasks.delete('/:id', (req, res) => {
+        Task.findByIdAndRemove(req.params.id, (err, deletedTask) => {
+          if (err) {
+            res.status(400).json({ error: err.message })
+          }
+          res.status(200).json(deletedTask)
+        })
+      })
+      //curl -X DELETE http://localhost:3003/tasks/5cc738d41f84cd0a2e1225bb
+
+
+
       
 module.exports = tasks
