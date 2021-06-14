@@ -3,4 +3,5 @@
 ## Group Members:
 
 Tamir Montalto
+John Diket
 Troy Bankerd
