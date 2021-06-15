@@ -4,7 +4,7 @@ const taskSchema = mongoose.Schema({
     name: {type: String, title: 'Name', required: true},
     creator: {type: String, title: 'Creator'},
     completed:{type: Boolean, title: 'Completed'},
-    dateDue: {type: String, title: 'Date Due', required: true},
+    dueDate: {type: String, title: 'Due Date', required: true},
     description: {type: String, title: 'Description'}, 
     subTask: [{
         name: {type: String, title: 'Name'},
