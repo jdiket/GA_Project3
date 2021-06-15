@@ -1,18 +1,13 @@
+// Dependencies
 const express = require('express');
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 
 // CONFIG
 const app = express();
 const PORT = 3003;
 
-
-const cors = require('cors')
-
-
-
 //Middleware
-
 app.use(express.json()) // use .json(), not .urlencoded()
 
 const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
@@ -32,7 +27,9 @@ mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 //Database Connection
-mongoose.connect('mongodb://localhost:27017/tasks', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/tasks', {                useNewUrlParser: true,
+    useUnifiedTopology: true,
+ })
 mongoose.connection.once('open', () => {
     console.log('connected to mongoose...')
 })
