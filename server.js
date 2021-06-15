@@ -27,7 +27,8 @@ mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 //Database Connection
-mongoose.connect('mongodb://localhost:27017/tasks', {                useNewUrlParser: true,
+mongoose.connect('mongodb://localhost:27017/tasks', {               
+    useNewUrlParser: true,
     useUnifiedTopology: true,
  })
 mongoose.connection.once('open', () => {
