@@ -30,6 +30,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 mongoose.connect('mongodb://localhost:27017/tasks', {               
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify:true
  })
 mongoose.connection.once('open', () => {
     console.log('connected to mongoose...')
