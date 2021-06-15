@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose')
+const db = mongoose.connection;
 
 
 // CONFIG
 const app = express();
 const PORT = 3003;
+const PORT = process.env.PORT || 3000;
 
 
 const cors = require('cors')
@@ -15,7 +17,7 @@ const cors = require('cors')
 
 app.use(express.json()) // use .json(), not .urlencoded()
 
-const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
+const whitelist = ['http://localhost:3003', 'https://fathomless-sierra-68956.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
