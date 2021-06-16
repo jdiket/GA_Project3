@@ -1,18 +1,21 @@
 // Dependencies
+require('dotenv').config()
+
 const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors')
 
+console.log(process.env.MONG_URI);
 const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONG_URI;
 
 // CONFIG
 const app = express();
-const PORT = 3003;
 
 //Middleware
 app.use(express.json()) // use .json(), not .urlencoded()
 
-const whitelist = ['http://localhost:3000', 'https://task-backend-project3.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'mongodb://localhost:27017/tasks','https://task-backend-project3.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
