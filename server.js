@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 // Dependencies
 require('dotenv').config()
 
