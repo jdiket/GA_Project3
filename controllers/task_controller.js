@@ -51,15 +51,15 @@ tasks.put('/:id', (req, res) => {
     })
 })
 
-tasks.update('/:id', (req, res) => {
-    const newSubTask = { name: req.body.name, description: req.body.description }
-    Task.updateOne({_id: req.params.id}, {$push: { subTask: newSubTask } })
-    Task.findById(req.params.id, (err, foundTask) => {
-        if (err) {
-            res.status(400).json({ error: err.message })
-        }
-        res.status(200).json(foundTask)
-    })
-})
+// tasks.update('/:id', (req, res) => {
+//     const newSubTask = { name: req.body.name, description: req.body.description }
+//     Task.updateOne({_id: req.params.id}, {$push: { subTask: newSubTask } })
+//     Task.findById(req.params.id, (err, foundTask) => {
+//         if (err) {
+//             res.status(400).json({ error: err.message })
+//         }
+//         res.status(200).json(foundTask)
+//     })
+// })
 
 module.exports = tasks
