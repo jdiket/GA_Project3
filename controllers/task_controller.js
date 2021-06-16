@@ -41,6 +41,22 @@ tasks.delete('/:id', (req, res) => {
 })
 //curl -X DELETE http://localhost:3003/tasks/5cc738d41f84cd0a2e1225bb
 
+// Update Sub-Task
+tasks.put('/:id/update', (req, res) => {
+    console.log('req.body: ' + req.body)
+    const newSubTask = { name: req.body.name, description: req.body.description }
+    console.log('newSubTask: ' + newSubTask)
+    Task.updateOne({_id: req.params.id}, {$push: { subTask: newSubTask } })
+    Task.findById(req.params.id, (err, foundTask) => {
+        if (err) {
+            res.status(400).json({ error: err.message })
+        }
+        res.status(200).json(foundTask)
+        console.log(foundTask)
+    })
+})
+
+// Update Route
 tasks.put('/:id', (req, res) => {
     Task.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedTask) => {
         if (err) {

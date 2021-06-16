@@ -4,6 +4,11 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors')
+const db = mongoose.connection;
+
+console.log(process.env.MONGODB_URI);
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 console.log(process.env.MONG_URI);
 const PORT = process.env.PORT || 3000;
@@ -32,14 +37,13 @@ mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 //Database Connection
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
-
-mongoose.connect('mongodb://localhost:27017/tasks', {               
+mongoose.connect(MONGODB_URI ,  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify:true
- })
+    useFindAndModify: false
+});
+
 mongoose.connection.once('open', () => {
     console.log('connected to mongoose...')
 })
