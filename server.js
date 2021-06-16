@@ -36,7 +36,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 mongoose.connect(MONGODB_URI ,  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true
+    useFindAndModify: false
 });
 
 mongoose.connection.once('open', () => {
