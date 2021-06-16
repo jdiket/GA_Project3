@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors')
 const db = mongoose.connection;
+const axios = require('axios');
 
 console.log(process.env.MONGODB_URI);
 const PORT = process.env.PORT || 3000;
@@ -45,9 +46,17 @@ mongoose.connection.once('open', () => {
     console.log('connected to mongoose...')
 })
 
+app.get('/affirmations', (req, res) => {
+    axios.get('https://www.affirmations.dev/')
+        .then((data) => {
+            res.send(data.data)
+        })
+})
+
 //Controllers/Routes
 const tasksController = require('./controllers/task_controller.js')
 app.use('/tasks', tasksController)
+
 
 // LISTENER
 app.listen(PORT, () => { console.log('five by five on ', PORT) });
