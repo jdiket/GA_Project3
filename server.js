@@ -10,10 +10,6 @@ console.log(process.env.MONGODB_URI);
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
-console.log(process.env.MONG_URI);
-const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONG_URI;
-
 // CONFIG
 const app = express();
 
