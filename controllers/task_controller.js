@@ -44,10 +44,17 @@ tasks.delete('/:id', (req, res) => {
 // Update Sub-Task
 tasks.put('/:id/update', (req, res) => {
     console.log('id: ' + req.params.id)
-    console.log('req.body: ' + req.body)
+    // console.log('req.body: ' + req.body)
     const newSubTask = { name: req.body.name, description: req.body.description }
-    console.log('newSubTask: ' + newSubTask)
-    Task.updateOne( { _id: req.params.id }, {$push: { subTask: newSubTask } })
+    console.log(newSubTask)
+    Task.updateOne( { _id: req.params.id }, {$push: { subTask: newSubTask } }, { new: true }, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(result)
+        }
+        
+    })
     Task.findById(req.params.id, (err, foundTask) => {
         if (err) {
             res.status(400).json({ error: err.message })
