@@ -1,14 +1,14 @@
+require('dotenv').config()
+
 // Dependencies
 const express = require('express');
 const mongoose = require('mongoose')
-const db = mongoose.connection;
-
 const cors = require('cors')
+const db = mongoose.connection;
 
 // CONFIG
 const app = express();
-const PORT = 3003;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 //Middleware
 app.use(express.json()) // use .json(), not .urlencoded()

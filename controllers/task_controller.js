@@ -51,7 +51,7 @@ tasks.put('/:id', (req, res) => {
     })
 })
 
-tasks.update('/:id', (req, res) => {
+tasks.put('/:id/update', (req, res) => {
     const newSubTask = { name: req.body.name, description: req.body.description }
     Task.updateOne({_id: req.params.id}, {$push: { subTask: newSubTask } })
     Task.findById(req.params.id, (err, foundTask) => {
