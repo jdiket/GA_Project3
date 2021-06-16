@@ -5,7 +5,7 @@ const Task = require('../models/task.js')
 
 
 //Create Route
-tasks.post('/tasks', async (req, res) => {
+tasks.post('/', async (req, res) => {
     Task.create(req.body, (error, createdTask) => {
         if (error) {
             res.status(400).json({ error: error.message })
@@ -19,7 +19,7 @@ tasks.post('/tasks', async (req, res) => {
 
 
 //Index route
-tasks.get('/tasks', (req, res) => {
+tasks.get('/', (req, res) => {
     Task.find({}, (err, foundTasks) => {
         if (err) {
             res.status(400).json({ error: err.message })
