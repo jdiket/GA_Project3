@@ -1,12 +1,9 @@
 // Dependencies
 const express = require('express');
 const mongoose = require('mongoose')
-<<<<<<< HEAD
 const db = mongoose.connection;
 
-=======
 const cors = require('cors')
->>>>>>> f825755e3c3e6486bce379320462e10dfa9dac32
 
 // CONFIG
 const app = express();
