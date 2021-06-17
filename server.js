@@ -18,6 +18,7 @@ const app = express();
 //Middleware
 app.use(express.json()) // use .json(), not .urlencoded()
 
+// CORS
 const whitelist = ['http://localhost:3000', 'mongodb://localhost:27017/tasks','https://task-project3-frontend.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
@@ -35,7 +36,6 @@ mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
 //Database Connection
-
 mongoose.connect(MONGODB_URI ,  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -56,7 +56,6 @@ app.get('/affirmations', (req, res) => {
 //Controllers/Routes
 const tasksController = require('./controllers/task_controller.js')
 app.use('/tasks', tasksController)
-
 
 // LISTENER
 app.listen(PORT, () => { console.log('five by five on ', PORT) });

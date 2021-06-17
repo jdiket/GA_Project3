@@ -2,8 +2,6 @@ const express = require('express')
 const tasks = express.Router()
 const Task = require('../models/task.js')
 
-
-
 //Create Route
 tasks.post('/', async (req, res) => {
     Task.create(req.body, (error, createdTask) => {
@@ -16,8 +14,6 @@ tasks.post('/', async (req, res) => {
 
 //curl -X POST -H "Content-Type: application/json" -d '{"name":"world kindness"}' http://localhost:3003/tasks
 
-
-
 //Index route
 tasks.get('/', (req, res) => {
     Task.find({}, (err, foundTasks) => {
@@ -29,6 +25,16 @@ tasks.get('/', (req, res) => {
 })
 //curl http://localhost:3003/tasks
 
+// Show Route
+tasks.get('/:id', (req, res) => {
+    Task.findById(req.params.id, (err, foundTask) => {
+        if (err) {
+            res.status(400).json({ error: err.message })
+        }
+        res.status(200).json(foundTask)
+        // console.log(foundTask)
+    })
+})
 
 //Delete Route
 tasks.delete('/:id', (req, res) => {
@@ -43,8 +49,13 @@ tasks.delete('/:id', (req, res) => {
 
 // Update Sub-Task
 tasks.put('/:id/update', (req, res) => {
+    // Task.findByIdAndUpdate(req.params.id, {$push: { subTask: newSubTask } }, { new: true }, (err, updatedTask) => {
+    //     if (err) {
+    //         res.status(400).json({ error: err.message })
+    //     }
+    //     res.status(200).json(updatedTask)
+    // })
     console.log('id: ' + req.params.id)
-    // console.log('req.body: ' + req.body)
     const newSubTask = { name: req.body.name, description: req.body.description }
     console.log(newSubTask)
     Task.updateOne( { _id: req.params.id }, {$push: { subTask: newSubTask } }, { new: true }, (err, result) => {
@@ -53,7 +64,6 @@ tasks.put('/:id/update', (req, res) => {
         } else {
             console.log(result)
         }
-        
     })
     Task.findById(req.params.id, (err, foundTask) => {
         if (err) {
@@ -73,7 +83,5 @@ tasks.put('/:id', (req, res) => {
         res.status(200).json(updatedTask)
     })
 })
-
-
 
 module.exports = tasks
