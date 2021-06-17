@@ -20,3 +20,6 @@ This is the back end portion of a Task tracking App built using Node.js, Express
 #### Future Updates
 - Additional routes to improve front end functionality
 - Authorization and validation for users
+
+### Project Tracker
+https://docs.google.com/spreadsheets/d/1UcmS4hrt5x3Pzy5h0vXURY2ohGK3N1Ze2p3vh_2sK4c/edit?usp=sharing
