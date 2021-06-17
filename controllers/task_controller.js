@@ -2,8 +2,6 @@ const express = require('express')
 const tasks = express.Router()
 const Task = require('../models/task.js')
 
-
-
 //Create Route
 tasks.post('/', async (req, res) => {
     Task.create(req.body, (error, createdTask) => {
@@ -15,8 +13,6 @@ tasks.post('/', async (req, res) => {
 })
 
 //curl -X POST -H "Content-Type: application/json" -d '{"name":"world kindness"}' http://localhost:3003/tasks
-
-
 
 //Index route
 tasks.get('/', (req, res) => {
@@ -39,7 +35,6 @@ tasks.get('/:id', (req, res) => {
         // console.log(foundTask)
     })
 })
-
 
 //Delete Route
 tasks.delete('/:id', (req, res) => {
@@ -88,7 +83,5 @@ tasks.put('/:id', (req, res) => {
         res.status(200).json(updatedTask)
     })
 })
-
-
 
 module.exports = tasks
