@@ -1,8 +1,22 @@
-# GA_Project3
+# GA_Project3_Backend
+### Group Members:
+- Tamir Montalto
+- John Diket
+- Troy Bankerd
+- Ryan Wire
 
-## Group Members:
+## About
 
-Tamir Montalto
-John Diket
-Troy Bankerd
-Ryan Wire
+This is the back end portion of a Task tracking App built using Node.js, Express, and Mongo as part of a MERN stack application.  This part of the app includes the server side controller for transmitting information between the Mongo Database, the Affirmations API, and the React application front end.
+
+### Technologies Used
+- Express
+- MongoDB
+- Mongoose
+- Axios
+- DotENV
+- CORS
+
+#### Future Updates
+- Additional routes to improve front end functionality
+- Authorization and validation for users
