@@ -8,6 +8,8 @@
 ## About
 
 This is the back end portion of a Task tracking App built using Node.js, Express, and Mongo as part of a MERN stack application.  This part of the app includes the server side controller for transmitting information between the Mongo Database, the Affirmations API, and the React application front end.
+#### Deployed App
+https://task-project3-frontend.herokuapp.com/
 
 ### Technologies Used
 - Express
